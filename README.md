@@ -65,7 +65,9 @@ namespace Loops
             */
 
             //-----------task 6: do - while----here the statement runs atleast once eventhough the condition is not met
-            do
+           
+            /*
+             do
             {
                 Console.Write("Enter a number: ");
                 userInput = Console.ReadLine();
@@ -74,8 +76,68 @@ namespace Loops
             }
             while (5 >= 0);
             Console.WriteLine($"The sum is {sum}");
+            */
 
-            Console.ReadKey();
+            //-----------task 7 : TryParse()
+            ![image](https://github.com/CoderOphilia/c-Chapter-6-Activity/assets/159889719/a0fac906-f3fd-4c82-8032-7943d010aca1)
+
+/*Console.Write("How many times the numbers should be taken from the user? ");
+int numCount = int.Parse(Console.ReadLine());
+bool isValid;
+for (int i = 0; i < numCount; i++)
+{
+    do
+    {
+        Console.Write("Enter a number: ");
+        userInput = Console.ReadLine();
+
+        isValid = double.TryParse(userInput, out userValue); //TryParse will return two values [the result and the boolean]
+        sum += userValue;
+
+        if (isValid == false)
+        {
+            Console.WriteLine("Enter a numberic value: ");
+        }
+    }
+    while (isValid == false);
+    
+} */
+//Console.WriteLine($"The sum is {sum}");
+
+//task 8: The above loop should be repeated as long as the usevalue is not zero
+int numCount;
+do
+{
+    Console.WriteLine("How many times the numbers should be taken from the user? ");
+    numCount = int.Parse(Console.ReadLine());
+    bool isValid;
+    for (int i = 1; i <= numCount; i++)
+    {
+        do
+        {
+            Console.Write($"Enter a number {i}: ");
+            userInput = Console.ReadLine();
+
+            isValid = double.TryParse(userInput, out userValue); //TryParse will return two values [the result and the boolean]
+            sum += userValue;
+
+            if (isValid == false)
+            {
+                Console.WriteLine("Enter a numberic value: ");
+            }
+        }
+        while (isValid == false);
+
+    }
+    
+    if (numCount !=0)
+    {
+        Console.WriteLine($"The sum is {sum}");
+    }
+}
+while(numCount != 0);
+
+Console.ReadKey();
         }
     }
 }
